@@ -1,26 +1,9 @@
-import "./Costumers.css"
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Table } from 'antd';
 import { Link } from 'react-router-dom'
 import InternalMenu from 'antd/es/menu/menu';
-import { useDispatch, useSelector } from 'react-redux';
-import { store } from '../../redux/store';
-import DataTable from '../../components/Table/DataTable';
-import { setData, loading } from '../../redux/dataSlice/dataSlice';
-import { increment, favouriteData } from '../../redux/favouriteSlice/favouriteSlice';
 
-const Costumers = () => {
-    let dispatch = useDispatch()
-    let value = useSelector((store) => store.data.value)
-    let favourite = useSelector((store) => store.favourite.value)
-
-    useEffect(() => {
-        axios.get("https://northwind.vercel.app/api/customers").then((resp) => {
-            dispatch(setData(resp.data))
-        })
-    }, [])
-
+const DataTable = (value) => {
     const columns = [
         {
             title: 'Name',
@@ -39,7 +22,7 @@ const Costumers = () => {
             render: (record) => {
                 return (
                     <>
-                        <Link key={record.id} to={`/detail/${record.id}`} className='button'>Detail</Link>
+                        {/* <Link to={`/detail/${""}`} className='button'>Detail</Link> */}
                     </>
                 )
             },
@@ -50,10 +33,7 @@ const Costumers = () => {
                 return (
                     <>
                         {/* <button onClick={() => deleteItem(record)}>Favourite</button> */}
-                        <Link key={record} onClick={() => {
-                            dispatch(increment())
-                            dispatch(favouriteData(record))
-                        }} className='button button__fav'>Favourite</Link>
+                        <Link to="/favourites" className='button button__fav'>Favourite</Link>
                     </>
                 )
             },
@@ -66,7 +46,6 @@ const Costumers = () => {
         console.log('selectedRowKeys changed: ', newSelectedRowKeys);
         setSelectedRowKeys(newSelectedRowKeys);
     };
-
     const rowSelection = {
         onChange: onSelectChange,
         selections: [
@@ -104,25 +83,24 @@ const Costumers = () => {
         ],
     };
     return (
-        <Table className='container' rowSelection={rowSelection} columns={columns} dataSource={value} />
+        <Table className='container' rowSelection={rowSelection} columns={columns} dataSource={value.value} />
     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // return (
-    //     value.map(data => {
-    //         return <DataTable key={data.id} value={data} />
-    //     })
-    // )
 };
-export default Costumers;
+export default DataTable;
+
+
+
+
+
+
+
+
+// const deleteItem = (record) => {
+
+    //     console.log(record.key)
+    //     setDelets(prevData => {
+    //         let some = prevData.filter(product => product.key !== record.key)
+    //         console.log(some)
+    //         return some
+    //     })
+    // }

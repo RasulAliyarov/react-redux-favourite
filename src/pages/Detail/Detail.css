@@ -1,0 +1,22 @@
+ul {
+    list-style: none;
+    color: black;
+    width: fit-content !important;
+    font-family: sans-serif;
+    padding: 0;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+li {
+    font-weight: 600;
+    margin-bottom: 15px;
+
+}
+
+li span {
+    /* margin-left: 15px; */
+    font-weight: 400;
+    width: 150px;
+}

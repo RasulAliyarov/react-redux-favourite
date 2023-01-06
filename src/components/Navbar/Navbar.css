@@ -7,28 +7,32 @@ body {
     background-position: center;
     color: white;
 }
-a{
+
+a {
     text-decoration: none;
     color: white;
 }
-.logo{
+
+.logo {
     letter-spacing: 8px;
     font-family: sans-serif;
     font-size: 32px;
     font-weight: 600;
 }
+
 .container {
-    width: 1200px;
+    width: 80%;
     margin: 0 auto;
 }
-.header__wrapper{
+
+.header__wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
 }
 
-.header__wrapper__right a{
+.header__wrapper__right a {
     margin-left: 40px;
     text-decoration: none;
     color: white;
@@ -39,8 +43,19 @@ a{
     transition: .4s;
 }
 
-.header__wrapper__right a:hover{
+.header__wrapper__right a:hover {
     background-color: white;
     color: rgb(65, 16, 110);
     transition: .4s;
+}
+
+.fawouriteLink {
+    position: relative;
+}
+
+.fw {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 14px;
 }

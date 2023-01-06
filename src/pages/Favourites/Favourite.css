@@ -1,0 +1,19 @@
+.favouriteList button {
+    padding: 10px 15px;
+    border: 0;
+    background-color: rgb(58, 0, 43);
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.favouriteList button:hover {
+    opacity: .8;
+    transition: .4s;
+}
+
+.favouriteList {
+    margin: 0 auto;
+    list-style: decimal;
+}
